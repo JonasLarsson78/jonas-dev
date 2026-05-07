@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { LanguageProvider } from './context/LanguageContext'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import AboutModal from './components/AboutModal'
@@ -31,7 +32,7 @@ function App() {
   }, [closeModal])
 
   return (
-    <>
+    <LanguageProvider>
       <Navbar onNavClick={setActiveSection} />
       <Hero dimmed={activeSection !== null} />
       {activeSection === 'om-mig' && (
@@ -49,7 +50,7 @@ function App() {
       {activeSection === 'faq' && (
         <FaqModal onClose={closeModal} isClosing={isClosing} />
       )}
-    </>
+    </LanguageProvider>
   )
 }
 

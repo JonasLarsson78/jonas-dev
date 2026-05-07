@@ -1,5 +1,6 @@
 import { X, Clock, Banknote } from 'lucide-react'
 import { services } from '../content/services'
+import { useLanguage } from '../context/LanguageContext'
 import './ServicesModal.scss'
 
 interface ServicesModalProps {
@@ -8,6 +9,9 @@ interface ServicesModalProps {
 }
 
 export default function ServicesModal({ onClose, isClosing }: ServicesModalProps) {
+  const { lang } = useLanguage()
+  const t = services[lang]
+
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <div className={`smodal${isClosing ? ' modal-closing' : ''}`} onClick={(e) => e.stopPropagation()}>
@@ -15,10 +19,10 @@ export default function ServicesModal({ onClose, isClosing }: ServicesModalProps
           <X size={24} />
         </button>
 
-        <h2 className="smodal__title">{services.title}</h2>
+        <h2 className="smodal__title">{t.title}</h2>
 
         <ul className="smodal__list">
-          {services.items.map((item) => (
+          {t.items.map((item) => (
             <li key={item.name} className="smodal__item">
               <div className="smodal__item-main">
                 <span className="smodal__item-name">{item.name}</span>

@@ -1,5 +1,6 @@
 import wallpaper from '../assets/wallpaper.png'
 import { hero } from '../content/hero'
+import { useLanguage } from '../context/LanguageContext'
 import './Hero.scss'
 
 interface HeroProps {
@@ -7,6 +8,9 @@ interface HeroProps {
 }
 
 export default function Hero({ dimmed }: HeroProps) {
+  const { lang } = useLanguage()
+  const t = hero[lang]
+
   return (
     <section className="hero">
       <img
@@ -15,10 +19,10 @@ export default function Hero({ dimmed }: HeroProps) {
         className={dimmed ? 'hero__img--bw' : ''}
       />
       <div className={`hero__overlay${dimmed ? ' hero__overlay--hidden' : ''}`} aria-hidden={dimmed}>
-        <h1 className="hero__title">{hero.title}</h1>
-        <p className="hero__subtitle">{hero.subtitle}</p>
+        <h1 className="hero__title">{t.title}</h1>
+        <p className="hero__subtitle">{t.subtitle}</p>
       </div>
-      <footer className="hero__footer">{hero.footer}</footer>
+      <footer className="hero__footer">{t.footer}</footer>
     </section>
   )
 }

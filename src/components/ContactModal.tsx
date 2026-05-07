@@ -1,5 +1,6 @@
 import { X, Mail, Phone, GitBranch, Link2 } from 'lucide-react'
 import { contact } from '../content/contact'
+import { useLanguage } from '../context/LanguageContext'
 import './ContactModal.scss'
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -15,6 +16,9 @@ interface ContactModalProps {
 }
 
 export default function ContactModal({ onClose, isClosing }: ContactModalProps) {
+  const { lang } = useLanguage()
+  const t = contact[lang]
+
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <div className={`cmodal${isClosing ? ' modal-closing' : ''}`} onClick={(e) => e.stopPropagation()}>
@@ -22,10 +26,10 @@ export default function ContactModal({ onClose, isClosing }: ContactModalProps) 
           <X size={24} />
         </button>
 
-        <h2 className="cmodal__title">{contact.title}</h2>
+        <h2 className="cmodal__title">{t.title}</h2>
 
         <ul className="cmodal__list">
-          {contact.items.map((item) => (
+          {t.items.map((item) => (
             <li key={item.label}>
               <a className="cmodal__item" href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel="noreferrer">
                 <span className="cmodal__icon">{iconMap[item.icon]}</span>

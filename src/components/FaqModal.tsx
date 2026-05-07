@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { X, ChevronDown } from 'lucide-react'
 import { faq } from '../content/faq'
+import { useLanguage } from '../context/LanguageContext'
 import './FaqModal.scss'
 
 interface FaqModalProps {
@@ -10,6 +11,8 @@ interface FaqModalProps {
 
 export default function FaqModal({ onClose, isClosing }: FaqModalProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const { lang } = useLanguage()
+  const t = faq[lang]
 
   function toggle(i: number) {
     setOpenIndex(openIndex === i ? null : i)
@@ -22,10 +25,10 @@ export default function FaqModal({ onClose, isClosing }: FaqModalProps) {
           <X size={24} />
         </button>
 
-        <h2 className="fmodal__title">{faq.title}</h2>
+        <h2 className="fmodal__title">{t.title}</h2>
 
         <ul className="fmodal__list">
-          {faq.items.map((item, i) => (
+          {t.items.map((item, i) => (
             <li key={i} className={`fmodal__item${openIndex === i ? ' fmodal__item--open' : ''}`}>
               <button className="fmodal__question" onClick={() => toggle(i)}>
                 <span>{item.question}</span>
