@@ -7,12 +7,15 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "vercel:dev": "vercel dev"
   },
   "dependencies": {
     "@fontsource-variable/playwrite-ca": "^5.2.9",
     "@fontsource/fira-code": "^5.2.7",
+    "@types/nodemailer": "^8.0.0",
     "lucide-react": "^1.14.0",
+    "nodemailer": "^8.0.7",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "sass": "^1.99.0"
@@ -22,6 +25,7 @@
     "@types/node": "^24.12.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "@vercel/node": "^5.7.15",
     "@vitejs/plugin-react": "^6.0.1",
     "eslint": "^10.2.1",
     "eslint-plugin-react-hooks": "^7.1.1",

@@ -34,13 +34,12 @@ export default function Navbar({ onNavClick }: NavbarProps) {
       </div>
       <ul
         className={`navbar__dropdown${open ? ' navbar__dropdown--open' : ''}`}
-        aria-hidden={!open}
+        inert={!open}
       >
         {t.links.map(({ label, id }) => (
           <li key={id}>
             <a
               href="#"
-              tabIndex={open ? 0 : -1}
               onClick={(e) => { e.preventDefault(); handleClick(id) }}
             >
               {label}

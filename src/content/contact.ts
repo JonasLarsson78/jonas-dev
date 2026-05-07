@@ -1,6 +1,19 @@
 export const contact = {
   sv: {
     title: 'Kontakt',
+    form: {
+      name: 'Namn',
+      namePlaceholder: 'Ditt namn',
+      email: 'E-post',
+      emailPlaceholder: 'din@epost.se',
+      message: 'Meddelande',
+      messagePlaceholder: 'Skriv ditt meddelande...',
+      submit: 'Skicka',
+      sending: 'Skickar...',
+      success: 'Tack! Ditt meddelande är skickat.',
+      error: 'Något gick fel. Försök igen.',
+    },
+    divider: 'eller nå mig via',
     items: [
       { label: 'E-post', value: 'jl.7804@gmail.com', href: 'mailto:jl.7804@gmail.com', icon: 'mail' },
       { label: 'Telefon', value: '070-644 49 22', href: 'tel:+46706444922', icon: 'phone' },
@@ -10,6 +23,19 @@ export const contact = {
   },
   en: {
     title: 'Contact',
+    form: {
+      name: 'Name',
+      namePlaceholder: 'Your name',
+      email: 'Email',
+      emailPlaceholder: 'your@email.com',
+      message: 'Message',
+      messagePlaceholder: 'Write your message...',
+      submit: 'Send',
+      sending: 'Sending...',
+      success: 'Thanks! Your message has been sent.',
+      error: 'Something went wrong. Please try again.',
+    },
+    divider: 'or reach me via',
     items: [
       { label: 'Email', value: 'jl.7804@gmail.com', href: 'mailto:jl.7804@gmail.com', icon: 'mail' },
       { label: 'Phone', value: '070-644 49 22', href: 'tel:+46706444922', icon: 'phone' },
