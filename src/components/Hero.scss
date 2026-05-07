@@ -1,0 +1,101 @@
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient-shift {
+  0%   { background-position: 0% }
+  100% { background-position: 200% }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to   { width: 26ch }
+}
+
+@keyframes cursor-blink {
+  0%, 100% { border-color: rgba(255, 255, 255, 0.8) }
+  50%       { border-color: transparent }
+}
+
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: filter 0.6s ease;
+
+    &.hero__img--bw {
+      filter: grayscale(1) blur(3px);
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+
+    &--hidden {
+      opacity: 0;
+    }
+  }
+
+  &__title {
+    padding-bottom: 10px;
+    font-family: 'Playwrite CA Variable', cursive;
+    font-size: clamp(2.5rem, 10vw, 10rem);
+    font-weight: 700;
+    background: linear-gradient(90deg, #fff 0%, #93c5fd 35%, #38bdf8 55%, #fff 100%);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 18px rgba(147, 197, 253, 0.7));
+    opacity: 0;
+    animation:
+      fade-up 0.8s ease forwards,
+      gradient-shift 5s linear 0.8s infinite;
+  }
+
+  &__subtitle {
+    font-size: clamp(0.65rem, 2.5vw, 1rem);
+    letter-spacing: 0.35em;
+    color: rgba(255, 255, 255, 0.85);
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    border-right: 2px solid rgba(255, 255, 255, 0.8);
+    animation:
+      typing 1.5s steps(16, end) 1s forwards,
+      cursor-blink 0.8s step-end 1s infinite;
+  }
+
+  &__footer {
+    position: absolute;
+    bottom: 1.5rem;
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.85rem;
+  }
+}

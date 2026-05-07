@@ -1,0 +1,37 @@
+@import '@fontsource/fira-code';
+@import '@fontsource-variable/playwrite-ca';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Fira Code', monospace;
+  overflow-x: hidden;
+  background: black;
+}
+
+@keyframes modal-out {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to   { opacity: 0; transform: translateY(20px) scale(0.97); }
+}
+
+.modal-closing {
+  animation: modal-out 0.28s ease forwards !important;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 56px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

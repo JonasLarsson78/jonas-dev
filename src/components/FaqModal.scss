@@ -1,0 +1,124 @@
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.fmodal {
+  position: relative;
+  background: #111;
+  color: #fff;
+  width: 95vw;
+  max-width: 680px;
+  max-height: 88vh;
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  animation: modal-in 0.35s ease forwards;
+
+  @media (max-width: 600px) {
+    padding: 1.5rem 1.25rem;
+  }
+
+  &__close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &__title {
+    flex-shrink: 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.75rem;
+    background: linear-gradient(90deg, #fff 0%, #93c5fd 50%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow-y: auto;
+  }
+
+  &__item {
+    border: 1px solid #2a2a2a;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: border-color 0.2s;
+
+    &--open {
+      border-color: rgba(147, 197, 253, 0.3);
+    }
+  }
+
+  &__question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: #1a1a1a;
+    border: none;
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #222;
+    }
+  }
+
+  &__chevron {
+    flex-shrink: 0;
+    color: #93c5fd;
+    transition: transform 0.3s ease;
+
+    .fmodal__item--open & {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+
+    .fmodal__item--open & {
+      max-height: 200px;
+    }
+
+    p {
+      padding: 0.75rem 1.25rem 1rem;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.7);
+      background: #161616;
+    }
+  }
+}

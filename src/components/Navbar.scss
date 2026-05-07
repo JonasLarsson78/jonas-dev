@@ -1,0 +1,79 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid #93c4fd35;
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+  }
+  background: #1a1a1a;
+  color: #fff;
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  &__icon {
+    color: #fff;
+    width: 20px;
+    height: 20px;
+  }
+
+  &__logo {
+    font-family: 'Playwrite CA Variable', cursive;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  &__hamburger {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0.25rem;
+  }
+
+  &__dropdown {
+    position: fixed;
+    top: 76px;
+    right: 0;
+    z-index: 150;
+    background: #2d2d2d;
+    list-style: none;
+    min-width: 200px;
+    border-radius: 0 0 0.5rem 0.5rem;
+    overflow: hidden;
+    max-height: 0;
+    pointer-events: none;
+    transition: max-height 0.4s ease;
+
+    &--open {
+      max-height: 300px;
+      pointer-events: auto;
+    }
+
+    li a {
+      display: block;
+      padding: 1rem 1.75rem;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+
+      &:hover {
+        background: #3a3a3a;
+      }
+    }
+  }
+}
