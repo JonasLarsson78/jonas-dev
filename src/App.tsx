@@ -6,7 +6,6 @@ import ServicesModal from './components/ServicesModal'
 import ContactModal from './components/ContactModal'
 import FaqModal from './components/FaqModal'
 import TechStackModal from './components/TechStackModal'
-import './App.scss'
 
 const CLOSE_DURATION = 280
 
