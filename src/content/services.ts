@@ -27,6 +27,12 @@ export const services = {
         delivery: '1–2 dagar',
       },
       {
+        name: 'SPA-hemsida',
+        description: 'Komplett ensidesapplikation med navigation och sektioner',
+        price: '8 000–18 000 kr',
+        delivery: '3–7 dagar',
+      },
+      {
         name: 'Dashboard / admin',
         description: 'Lista data, enkel CRUD',
         price: '6 000–12 000 kr',
@@ -78,6 +84,12 @@ export const services = {
         description: 'Simple page with CTA',
         price: '4 000–8 000 SEK',
         delivery: '1–2 days',
+      },
+      {
+        name: 'SPA website',
+        description: 'Complete single-page application with navigation and sections',
+        price: '8 000–18 000 SEK',
+        delivery: '3–7 days',
       },
       {
         name: 'Dashboard / admin',
