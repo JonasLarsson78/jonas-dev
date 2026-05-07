@@ -24,10 +24,19 @@ export default function Navbar({ onNavClick }: NavbarProps) {
       <button className="navbar__hamburger" onClick={() => setOpen(!open)} aria-label="Toggle menu">
         {open ? <X size={24} /> : <Menu size={24} />}
       </button>
-      <ul className={`navbar__dropdown${open ? ' navbar__dropdown--open' : ''}`}>
+      <ul
+        className={`navbar__dropdown${open ? ' navbar__dropdown--open' : ''}`}
+        aria-hidden={!open}
+      >
         {nav.links.map(({ label, id }) => (
           <li key={id}>
-            <a href="#" onClick={(e) => { e.preventDefault(); handleClick(id) }}>{label}</a>
+            <a
+              href="#"
+              tabIndex={open ? 0 : -1}
+              onClick={(e) => { e.preventDefault(); handleClick(id) }}
+            >
+              {label}
+            </a>
           </li>
         ))}
       </ul>
